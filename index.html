@@ -3,54 +3,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Material Design Website</title>
+    <title>Rampage Limited</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Welcome to Rampage Limited, a modern, responsive, and stylish Material Design website."
+    />
+    <meta
+      name="keywords"
+      content="Material Design, Responsive, Modern, Rampage Limited"
+    />
   </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">MySite</div>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+  <body class="font-sans antialiased">
+    <header class="bg-black text-yellow-500">
+      <nav class="container mx-auto p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold">Rampage Limited</div>
+        <ul class="flex space-x-4">
+          <li>
+            <a href="#" class="hover:text-yellow-300" aria-label="Home">Home</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-yellow-300" aria-label="About"
+              >About</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-yellow-300" aria-label="Services"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-yellow-300" aria-label="Contact"
+              >Contact</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
-    <main>
-      <section class="hero">
-        <h1>Welcome to My Material Design Website</h1>
-        <p>Modern, responsive, and stylish.</p>
-        <button class="btn">Get Started</button>
+    <!-- Main Banner -->
+    <section
+      class="relative bg-cover bg-center h-screen"
+      style="background-image: url('images/banner.jpg')"
+    >
+      <div class="absolute inset-0 bg-black opacity-70"></div>
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-yellow-500 text-center"
+      >
+        <h1 class="text-5xl font-bold mb-4">Welcome to Rampage Limited</h1>
+        <p class="text-xl mb-6">Modern, responsive, and stylish.</p>
+        <button
+          class="btn bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600"
+          aria-label="Get Started"
+        >
+          Get Started
+        </button>
+      </div>
+    </section>
+    <main class="container mx-auto p-4">
+      <section class="statistics py-20">
+        <h2 class="text-3xl font-bold text-center mb-10 text-black">
+          Our Impact
+        </h2>
+        <div class="flex justify-around">
+          <div class="stat text-center">
+            <span class="material-icons text-5xl mb-2 text-yellow-500"
+              >timer</span
+            >
+            <p class="text-xl text-black"><strong>5000+</strong> Hours Saved</p>
+          </div>
+          <div class="stat text-center">
+            <span class="material-icons text-5xl mb-2 text-yellow-500"
+              >public</span
+            >
+            <p class="text-xl text-black">
+              <strong>100+</strong> Countries Reached
+            </p>
+          </div>
+          <div class="stat text-center">
+            <span class="material-icons text-5xl mb-2 text-yellow-500"
+              >people</span
+            >
+            <p class="text-xl text-black"><strong>10,000+</strong> Users</p>
+          </div>
+        </div>
       </section>
-      <section class="statistics">
-        <h2>Our Impact</h2>
-        <div class="stat">
-          <span class="material-icons">timer</span>
-          <p><strong>5000+</strong> Hours Saved</p>
+      <section class="testimonials py-20 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10 text-black">
+          Testimonials
+        </h2>
+        <div class="testimonial text-center mb-6">
+          <p class="italic text-black">
+            "Rampage Limited has transformed our business. Highly recommended!"
+          </p>
+          <p class="mt-2 text-black">- Jane Doe, CEO of ExampleCorp</p>
         </div>
-        <div class="stat">
-          <span class="material-icons">public</span>
-          <p><strong>100+</strong> Countries Reached</p>
-        </div>
-        <div class="stat">
-          <span class="material-icons">people</span>
-          <p><strong>10,000+</strong> Users</p>
+        <div class="testimonial text-center">
+          <p class="italic text-black">
+            "Their services are top-notch and have saved us countless hours."
+          </p>
+          <p class="mt-2 text-black">- John Smith, CTO of TechSolutions</p>
         </div>
       </section>
-      <section class="images">
-        <h2>Gallery</h2>
-        <img src="images/example1.jpg" alt="Example Image 1" />
-        <img src="images/example2.jpg" alt="Example Image 2" />
+      <section class="images py-20">
+        <h2 class="text-3xl font-bold text-center mb-10 text-black">Gallery</h2>
+        <div class="flex justify-center space-x-4">
+          <img
+            src="images/example1.jpg"
+            alt="Example Image 1"
+            class="w-1/3 rounded shadow-lg"
+            loading="lazy"
+          />
+          <img
+            src="images/example2.jpg"
+            alt="Example Image 2"
+            class="w-1/3 rounded shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </section>
+      <section class="contact-form py-20 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10 text-black">
+          Contact Us
+        </h2>
+        <form action="#" method="post" class="max-w-lg mx-auto">
+          <label for="name" class="block text-left mb-2 text-black"
+            >Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="w-full p-2 mb-4 border rounded"
+            required
+          />
+          <label for="email" class="block text-left mb-2 text-black"
+            >Email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full p-2 mb-4 border rounded"
+            required
+          />
+          <label for="message" class="block text-left mb-2 text-black"
+            >Message:</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            class="w-full p-2 mb-4 border rounded"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="btn bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600"
+            aria-label="Send Message"
+          >
+            Send Message
+          </button>
+        </form>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2024 MySite. All rights reserved.</p>
+    <footer class="bg-black text-yellow-500 text-center py-4">
+      <p>&copy; 2024 Rampage Limited. All rights reserved.</p>
     </footer>
   </body>
 </html>
