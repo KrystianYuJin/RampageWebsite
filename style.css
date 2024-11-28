@@ -1,0 +1,114 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #ffeb3b;
+  color: #000;
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background-color: #000;
+  color: #ffeb3b;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.statistics {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.statistics h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: inline-block;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.stat .material-icons {
+  font-size: 3rem;
+  color: #ffeb3b;
+}
+
+.images {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.images h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.images img {
+  width: 200px;
+  height: auto;
+  margin: 1rem;
+  border: 2px solid #ffeb3b;
+}
+
+footer {
+  background-color: #000;
+  color: #ffeb3b;
+  text-align: center;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
