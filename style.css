@@ -3,14 +3,15 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #10172a;
+  color: #e0e0e0;
 }
 
 header {
-  background-color: #ffeb3b;
-  color: #000;
+  background-color: #10172a;
+  color: #a259f7;
   padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 nav {
@@ -22,6 +23,7 @@ nav {
 nav .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #a259f7;
 }
 
 nav ul {
@@ -31,84 +33,159 @@ nav ul {
 }
 
 nav ul li a {
-  color: #000;
+  color: #a259f7;
   text-decoration: none;
   font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.hero {
+nav ul li a:hover {
+  color: #7c3aed;
+}
+
+.hero, .main-banner {
   text-align: center;
   padding: 4rem 2rem;
-  background-color: #ffeb3b;
-  color: #000;
+  background: linear-gradient(135deg, #10172a 60%, #2d186a 100%);
+  color: #a259f7;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
+.hero h1, .main-banner h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
+  color: #a259f7;
+  animation: fadeInDown 1s;
 }
 
-.hero p {
+.hero p, .main-banner p {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  color: #e0e0e0;
+  animation: fadeIn 2s;
 }
 
 .btn {
-  background-color: #000;
-  color: #ffeb3b;
+  background-color: #a259f7;
+  color: #fff;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(162,89,247,0.2);
+  transition: background 0.3s, transform 0.2s;
+  animation: popIn 1.5s;
 }
 
-.statistics {
+.btn:hover {
+  background-color: #7c3aed;
+  transform: scale(1.05);
+}
+
+.statistics, .features, .benefits, .testimonials, .images, .contact-form {
   text-align: center;
   padding: 2rem;
-  background-color: #fff;
+  background-color: #181f3a;
+  color: #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.statistics h2 {
+.statistics h2, .features h2, .benefits h2, .testimonials h2, .images h2, .contact-form h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #a259f7;
+  animation: fadeInUp 1s;
 }
 
-.stat {
+.stat, .feature, .benefit {
   display: inline-block;
   margin: 1rem;
   font-size: 1.5rem;
+  background: #10172a;
+  border: 2px solid #a259f7;
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(162,89,247,0.1);
+  transition: transform 0.3s;
+  animation: fadeIn 2s;
 }
 
-.stat .material-icons {
+.stat .material-icons, .feature .material-icons, .benefit .material-icons {
   font-size: 3rem;
-  color: #ffeb3b;
-}
-
-.images {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f5f5f5;
-}
-
-.images h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  color: #a259f7;
+  margin-bottom: 0.5rem;
+  animation: pulse 2s infinite;
 }
 
 .images img {
   width: 200px;
   height: auto;
   margin: 1rem;
-  border: 2px solid #ffeb3b;
+  border: 4px solid #a259f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(162,89,247,0.2);
+  transition: transform 0.3s;
+  animation: fadeIn 2s;
+}
+
+.images img:hover {
+  transform: scale(1.08) rotate(-2deg);
 }
 
 footer {
-  background-color: #000;
-  color: #ffeb3b;
+  background-color: #10172a;
+  color: #a259f7;
   text-align: center;
   padding: 1rem 0;
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 0;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { color: #a259f7; }
+  50% { color: #7c3aed; }
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+  background: #181f3a;
+  color: #fff;
+  border: 2px solid #a259f7;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  transition: border 0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7c3aed;
+  outline: none;
+}
+.contact-form button {
+  margin-top: 1rem;
 }

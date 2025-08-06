@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rampage Limited</title>
+    <title>ShiftSync - Rota Scheduling PWA</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -12,159 +12,159 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
     <meta
       name="description"
-      content="Welcome to Rampage Limited, a modern, responsive, and stylish Material Design website."
+      content="ShiftSync is a modern, responsive, and stylish Rota Scheduling PWA for any device. Create shifts, manage patterns, and holidays with ease."
     />
     <meta
       name="keywords"
-      content="Material Design, Responsive, Modern, Rampage Limited"
+      content="ShiftSync, Rota Scheduling, PWA, Shift Creation, Pattern Templates, Holiday Management, Modern, Responsive"
     />
+    <script src="script.js" defer></script>
+    <style>
+      /* Inline styles for quick accent tweaks, main theme in style.css */
+    </style>
   </head>
-  <body class="font-sans antialiased">
-    <header class="bg-black text-yellow-500">
+  <body class="font-sans antialiased bg-navy">
+    <header class="bg-navy text-accent shadow-lg">
       <nav class="container mx-auto p-4 flex justify-between items-center">
-        <div class="text-2xl font-bold">Rampage Limited</div>
+        <div class="text-2xl font-bold accent logo">ShiftSync</div>
         <ul class="flex space-x-4">
           <li>
-            <a href="#" class="hover:text-yellow-300" aria-label="Home">Home</a>
+            <a href="#" class="hover:text-purple-400" aria-label="Home">Home</a>
           </li>
           <li>
-            <a href="#" class="hover:text-yellow-300" aria-label="About"
-              >About</a
-            >
+            <a href="#features" class="hover:text-purple-400" aria-label="Features">Features</a>
           </li>
           <li>
-            <a href="#" class="hover:text-yellow-300" aria-label="Services"
-              >Services</a
-            >
+            <a href="#benefits" class="hover:text-purple-400" aria-label="Benefits">Benefits</a>
           </li>
           <li>
-            <a href="#" class="hover:text-yellow-300" aria-label="Contact"
-              >Contact</a
-            >
+            <a href="#contact" class="hover:text-purple-400" aria-label="Contact">Contact</a>
           </li>
         </ul>
       </nav>
     </header>
     <!-- Main Banner -->
     <section
-      class="relative bg-cover bg-center h-screen"
-      style="background-image: url('images/banner.jpg')"
+      class="main-banner relative bg-cover bg-center h-screen"
+      style="background-image: url('images/shift_banner_dark.jpg')"
     >
-      <div class="absolute inset-0 bg-black opacity-70"></div>
+      <div class="absolute inset-0 bg-navy opacity-80"></div>
       <div
-        class="relative z-10 flex flex-col items-center justify-center h-full text-yellow-500 text-center"
+        class="relative z-10 flex flex-col items-center justify-center h-full text-accent text-center"
       >
-        <h1 class="text-5xl font-bold mb-4">Welcome to Rampage Limited</h1>
-        <p class="text-xl mb-6">Modern, responsive, and stylish.</p>
+        <h1 class="text-5xl font-bold mb-4">ShiftSync</h1>
+        <p class="text-xl mb-6">The Ultimate Rota Scheduling PWA for Any Device</p>
         <button
-          class="btn bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600"
+          class="btn py-2 px-6 rounded shadow-lg text-lg"
           aria-label="Get Started"
         >
-          Get Started
+          Try ShiftSync Now
         </button>
+        <p class="mt-4 text-lg text-gray-300">Modern, secure, and always accessible.</p>
       </div>
     </section>
     <main class="container mx-auto p-4">
-      <section class="statistics py-20">
-        <h2 class="text-3xl font-bold text-center mb-10 text-black">
-          Our Impact
-        </h2>
-        <div class="flex justify-around">
-          <div class="stat text-center">
-            <span class="material-icons text-5xl mb-2 text-yellow-500"
-              >timer</span
-            >
-            <p class="text-xl text-black"><strong>5000+</strong> Hours Saved</p>
+      <section id="features" class="features py-20">
+        <h2 class="text-3xl font-bold text-center mb-10 accent">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="feature bg-navy rounded-lg p-6 shadow-lg border border-accent text-center">
+            <span class="material-icons text-5xl mb-2 accent">event</span>
+            <h3 class="text-xl font-bold mb-2 accent">Shift Creation</h3>
+            <p>Create, edit, and manage shifts with an intuitive interface.</p>
           </div>
-          <div class="stat text-center">
-            <span class="material-icons text-5xl mb-2 text-yellow-500"
-              >public</span
-            >
-            <p class="text-xl text-black">
-              <strong>100+</strong> Countries Reached
-            </p>
+          <div class="feature bg-navy rounded-lg p-6 shadow-lg border border-accent text-center">
+            <span class="material-icons text-5xl mb-2 accent">repeat</span>
+            <h3 class="text-xl font-bold mb-2 accent">Pattern Templates</h3>
+            <p>Set up alternating shift patterns and templates for easy scheduling.</p>
           </div>
-          <div class="stat text-center">
-            <span class="material-icons text-5xl mb-2 text-yellow-500"
-              >people</span
-            >
-            <p class="text-xl text-black"><strong>10,000+</strong> Users</p>
+          <div class="feature bg-navy rounded-lg p-6 shadow-lg border border-accent text-center">
+            <span class="material-icons text-5xl mb-2 accent">beach_access</span>
+            <h3 class="text-xl font-bold mb-2 accent">Holiday Management</h3>
+            <p>Track holidays and leave seamlessly within your rota.</p>
           </div>
         </div>
       </section>
-      <section class="testimonials py-20 bg-gray-100">
-        <h2 class="text-3xl font-bold text-center mb-10 text-black">
-          Testimonials
-        </h2>
+      <section id="benefits" class="benefits py-20 bg-navy">
+        <h2 class="text-3xl font-bold text-center mb-10 accent">Why ShiftSync?</h2>
+        <div class="flex flex-col md:flex-row justify-around items-center">
+          <div class="benefit text-center mb-8 md:mb-0 md:w-1/3">
+            <span class="material-icons text-5xl mb-2 accent">devices</span>
+            <p class="text-xl"><strong>PWA</strong> - Use on any device, online or offline.</p>
+          </div>
+          <div class="benefit text-center mb-8 md:mb-0 md:w-1/3">
+            <span class="material-icons text-5xl mb-2 accent">security</span>
+            <p class="text-xl"><strong>Secure</strong> - Your data is protected and private.</p>
+          </div>
+          <div class="benefit text-center md:w-1/3">
+            <span class="material-icons text-5xl mb-2 accent">speed</span>
+            <p class="text-xl"><strong>Fast & Responsive</strong> - Lightning quick scheduling and updates.</p>
+          </div>
+        </div>
+      </section>
+      <section class="testimonials py-20 bg-navy">
+        <h2 class="text-3xl font-bold text-center mb-10 accent">Testimonials</h2>
         <div class="testimonial text-center mb-6">
-          <p class="italic text-black">
-            "Rampage Limited has transformed our business. Highly recommended!"
+          <p class="italic accent">
+            "ShiftSync revolutionized our team's scheduling. The PWA works flawlessly on all our devices!"
           </p>
-          <p class="mt-2 text-black">- Jane Doe, CEO of ExampleCorp</p>
+          <p class="mt-2 text-gray-300">- Alex Carter, Operations Manager</p>
         </div>
         <div class="testimonial text-center">
-          <p class="italic text-black">
-            "Their services are top-notch and have saved us countless hours."
+          <p class="italic accent">
+            "Alternating patterns and holiday management have made our rota effortless. Highly recommended!"
           </p>
-          <p class="mt-2 text-black">- John Smith, CTO of TechSolutions</p>
+          <p class="mt-2 text-gray-300">- Priya Singh, HR Lead</p>
         </div>
       </section>
       <section class="images py-20">
-        <h2 class="text-3xl font-bold text-center mb-10 text-black">Gallery</h2>
+        <h2 class="text-3xl font-bold text-center mb-10 accent">Gallery</h2>
         <div class="flex justify-center space-x-4">
           <img
-            src="images/example1.jpg"
-            alt="Example Image 1"
-            class="w-1/3 rounded shadow-lg"
+            src="images/shiftsync_dashboard.jpg"
+            alt="ShiftSync Dashboard"
+            class="w-1/3 rounded shadow-lg border-4 border-accent"
             loading="lazy"
           />
           <img
-            src="images/example2.jpg"
-            alt="Example Image 2"
-            class="w-1/3 rounded shadow-lg"
+            src="images/shiftsync_mobile.jpg"
+            alt="ShiftSync Mobile"
+            class="w-1/3 rounded shadow-lg border-4 border-accent"
             loading="lazy"
           />
         </div>
       </section>
-      <section class="contact-form py-20 bg-gray-100">
-        <h2 class="text-3xl font-bold text-center mb-10 text-black">
-          Contact Us
-        </h2>
+      <section id="contact" class="contact-form py-20 bg-navy">
+        <h2 class="text-3xl font-bold text-center mb-10 accent">Contact Us</h2>
         <form action="#" method="post" class="max-w-lg mx-auto">
-          <label for="name" class="block text-left mb-2 text-black"
-            >Name:</label
-          >
+          <label for="name" class="block text-left mb-2 accent">Name:</label>
           <input
             type="text"
             id="name"
             name="name"
-            class="w-full p-2 mb-4 border rounded"
+            class="w-full p-2 mb-4 border border-accent rounded bg-navy text-white"
             required
           />
-          <label for="email" class="block text-left mb-2 text-black"
-            >Email:</label
-          >
+          <label for="email" class="block text-left mb-2 accent">Email:</label>
           <input
             type="email"
             id="email"
             name="email"
-            class="w-full p-2 mb-4 border rounded"
+            class="w-full p-2 mb-4 border border-accent rounded bg-navy text-white"
             required
           />
-          <label for="message" class="block text-left mb-2 text-black"
-            >Message:</label
-          >
+          <label for="message" class="block text-left mb-2 accent">Message:</label>
           <textarea
             id="message"
             name="message"
-            class="w-full p-2 mb-4 border rounded"
+            class="w-full p-2 mb-4 border border-accent rounded bg-navy text-white"
             required
           ></textarea>
           <button
             type="submit"
-            class="btn bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600"
+            class="btn py-2 px-4 rounded hover:bg-purple-700"
             aria-label="Send Message"
           >
             Send Message
@@ -172,8 +172,8 @@
         </form>
       </section>
     </main>
-    <footer class="bg-black text-yellow-500 text-center py-4">
-      <p>&copy; 2024 Rampage Limited. All rights reserved.</p>
+    <footer class="bg-navy text-accent text-center py-4">
+      <p>&copy; 2024 ShiftSync. All rights reserved.</p>
     </footer>
   </body>
 </html>
