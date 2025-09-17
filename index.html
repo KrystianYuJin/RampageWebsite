@@ -457,59 +457,79 @@
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-            Get Started Today
+            Contact Us
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to revolutionize your workforce management? Contact us for a
-            personalized demo or start your free trial.
+            Have questions about Shift Sync? We'd love to hear from you.
+            Get in touch and we'll respond as soon as possible.
           </p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div class="contact-info">
             <h3 class="text-2xl font-bold mb-6 text-accent">
-              Contact Information
+              Get In Touch
             </h3>
-            <div class="space-y-4">
-              <div class="flex items-center">
-                <span class="material-icons text-accent mr-4">business</span>
+            <div class="space-y-6">
+              <div class="flex items-start group transition-all duration-300 hover:transform hover:translateX-2">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent to-accent-bright rounded-lg flex items-center justify-center mr-4 group-hover:shadow-lg group-hover:shadow-accent/30 transition-all duration-300">
+                  <span class="material-icons text-white text-xl">business</span>
+                </div>
                 <div>
-                  <p class="text-white font-semibold">Rampage Limited</p>
+                  <p class="text-white font-semibold text-lg">Rampage Limited</p>
                   <p class="text-gray-300">Isle of Man</p>
+                  <p class="text-gray-400 text-sm mt-1">Registered Company</p>
                 </div>
               </div>
-              <div class="flex items-center">
-                <span class="material-icons text-accent mr-4">email</span>
-                <div>
-                  <p class="text-white">hello@shiftsync.im</p>
+
+              <div class="flex items-start group transition-all duration-300 hover:transform hover:translateX-2">
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-accent to-accent-bright rounded-lg flex items-center justify-center mr-4 group-hover:shadow-lg group-hover:shadow-accent/30 transition-all duration-300">
+                  <span class="material-icons text-white text-xl">email</span>
                 </div>
-              </div>
-              <div class="flex items-center">
-                <span class="material-icons text-accent mr-4">phone</span>
                 <div>
-                  <p class="text-white">+44 1624 123456</p>
+                  <p class="text-white font-semibold text-lg">Email Us</p>
+                  <div id="email-container" class="text-accent hover:text-accent-bright transition-colors duration-300">
+                    <span>Loading email...</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="mt-8">
-              <h4 class="text-lg font-semibold text-accent mb-4">
-                Why Choose Us?
+
+            <div
+              class="mt-10 p-6 bg-gradient-to-br from-accent/10 to-accent-bright/5 rounded-xl border border-accent/20">
+              <h4 class="text-lg font-semibold text-accent mb-4 flex items-center">
+                <span class="material-icons mr-2">star</span>
+                Why Choose Shift Sync?
               </h4>
-              <ul class="space-y-2 text-gray-300">
-                <li class="flex items-center">
-                  <span class="material-icons text-accent mr-2 text-sm">check</span>
-                  Local Isle of Man business
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center group transition-all duration-300">
+                  <div
+                    class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons text-white text-sm">check</span>
+                  </div>
+                  <span class="group-hover:text-white transition-colors duration-300">Local Isle of Man business</span>
                 </li>
-                <li class="flex items-center">
-                  <span class="material-icons text-accent mr-2 text-sm">check</span>
-                  Dedicated support team
+                <li class="flex items-center group transition-all duration-300">
+                  <div
+                    class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons text-white text-sm">check</span>
+                  </div>
+                  <span class="group-hover:text-white transition-colors duration-300">Dedicated support team</span>
                 </li>
-                <li class="flex items-center">
-                  <span class="material-icons text-accent mr-2 text-sm">check</span>
-                  Customizable to your needs
+                <li class="flex items-center group transition-all duration-300">
+                  <div
+                    class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons text-white text-sm">check</span>
+                  </div>
+                  <span class="group-hover:text-white transition-colors duration-300">Customizable to your needs</span>
                 </li>
-                <li class="flex items-center">
-                  <span class="material-icons text-accent mr-2 text-sm">check</span>
-                  Enterprise-grade security
+                <li class="flex items-center group transition-all duration-300">
+                  <div
+                    class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span class="material-icons text-white text-sm">check</span>
+                  </div>
+                  <span class="group-hover:text-white transition-colors duration-300">Enterprise-grade security</span>
                 </li>
               </ul>
             </div>
@@ -553,14 +573,14 @@
               <div>
                 <label for="message" class="block text-accent mb-2 font-medium">Message *</label>
                 <textarea id="message" name="message" rows="4" class="form-input" required
-                  placeholder="Tell us about your scheduling needs..." maxlength="1000"></textarea>
+                  placeholder="Tell us how we can help you..." maxlength="1000"></textarea>
                 <div class="text-right text-sm text-gray-400 mt-1">
                   <span id="message-counter">0</span>/1000 characters
                 </div>
               </div>
 
               <button type="submit" class="btn-primary w-full py-4 text-lg font-semibold">
-                Request Demo
+                Send Message
               </button>
 
               <p class="text-xs text-gray-400 text-center">

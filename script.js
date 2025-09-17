@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initSmoothScrolling();
   initEnhancedAnimations();
   initScrollArrow();
+  initEmailReveal();
   createFloatingParticles();
 });
 
@@ -685,5 +686,52 @@ function initScrollArrow() {
         block: 'start'
       });
     });
+  }
+}
+
+// Email Reveal Functionality (Anti-spam protection)
+function initEmailReveal() {
+  const emailContainer = document.getElementById('email-container');
+  
+  if (emailContainer) {
+    // Auto-assemble email address on page load
+    setTimeout(function() {
+      // Obfuscated email parts
+      const user = 'ShiftSync';
+      const domain = 'rampage';
+      const tld = 'im';
+      const email = user + '@' + domain + '.' + tld;
+      
+      // Create mailto link
+      const emailLink = document.createElement('a');
+      emailLink.href = 'mailto:' + email;
+      emailLink.textContent = email;
+      emailLink.className = 'text-accent hover:text-accent-bright transition-colors duration-300';
+      
+      // Replace loading text with email link
+      emailContainer.innerHTML = '';
+      emailContainer.appendChild(emailLink);
+      
+      // Add copy to clipboard functionality
+      emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Copy to clipboard
+        navigator.clipboard.writeText(email).then(function() {
+          // Show success message
+          const originalText = emailLink.textContent;
+          emailLink.textContent = 'Email copied!';
+          emailLink.style.color = '#10b981';
+          
+          setTimeout(function() {
+            emailLink.textContent = originalText;
+            emailLink.style.color = '';
+          }, 2000);
+        }).catch(function() {
+          // Fallback: open email client
+          window.location.href = emailLink.href;
+        });
+      });
+    }, 500); // Small delay to avoid immediate assembly that bots might detect
   }
 }
