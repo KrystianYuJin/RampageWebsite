@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initEnhancedAnimations();
   initScrollArrow();
   initEmailReveal();
+  initTrialButtons();
+  initContactSalesButton();
   createFloatingParticles();
 });
 
@@ -734,4 +736,68 @@ function initEmailReveal() {
       });
     }, 500); // Small delay to avoid immediate assembly that bots might detect
   }
+}
+
+// Initialize Start Free Trial buttons
+function initTrialButtons() {
+  // Find all buttons with "Start Free Trial" text
+  const trialButtons = Array.from(document.querySelectorAll('button')).filter(button => 
+    button.textContent.trim() === 'Start Free Trial'
+  );
+  
+  trialButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Add loading state
+      const originalText = button.textContent;
+      button.textContent = 'Redirecting...';
+      button.disabled = true;
+      
+      // Redirect to scheduler.rampage.im
+      setTimeout(() => {
+        window.open('https://scheduler.rampage.im', '_blank');
+        
+        // Reset button state
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 500);
+    });
+  });
+}
+
+// Initialize Contact Sales button
+function initContactSalesButton() {
+  // Find the "Contact Sales" button
+  const contactSalesButtons = Array.from(document.querySelectorAll('button')).filter(button => 
+    button.textContent.trim() === 'Contact Sales'
+  );
+  
+  contactSalesButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Find the contact section
+      const contactSection = document.querySelector('#contact');
+      
+      if (contactSection) {
+        // Add visual feedback
+        const originalText = button.textContent;
+        button.textContent = 'Taking you there...';
+        button.disabled = true;
+        
+        // Smooth scroll to contact section
+        contactSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Reset button state after scroll
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 1000);
+      }
+    });
+  });
 }
