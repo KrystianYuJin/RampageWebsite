@@ -515,17 +515,30 @@
             </div>
           </div>
           <div class="contact-form-container">
-            <form class="contact-form space-y-6">
+            <form class="contact-form space-y-6" action="https://formspree.io/f/mjkeqjqj" method="POST"
+              data-form-type="formspree">
+
+              <!-- Formspree honeypot for spam protection -->
+              <input type="text" name="_gotcha" style="display:none" />
+
+              <!-- Formspree configuration -->
+              <input type="hidden" name="_subject" value="New Enquiry from Shift Sync Website" />
+              <input type="hidden" name="_next"
+                value="https://krystianyujin.github.io/RampageWebsite/#contact?success=true" />
+              <input type="hidden" name="_template" value="table" />
+
               <div>
-                <label for="name" class="block text-accent mb-2 font-medium">Business Name</label>
-                <input type="text" id="name" name="name" class="form-input" required
-                  placeholder="Enter your business name" />
+                <label for="name" class="block text-accent mb-2 font-medium">Business Name *</label>
+                <input type="text" id="name" name="business_name" class="form-input" required
+                  placeholder="Enter your business name" maxlength="100" />
               </div>
+
               <div>
-                <label for="email" class="block text-accent mb-2 font-medium">Email Address</label>
-                <input type="email" id="email" name="email" class="form-input" required
-                  placeholder="Enter your email" />
+                <label for="email" class="block text-accent mb-2 font-medium">Email Address *</label>
+                <input type="email" id="email" name="_replyto" class="form-input" required
+                  placeholder="Enter your email" maxlength="100" />
               </div>
+
               <div>
                 <label for="employees" class="block text-accent mb-2 font-medium">Number of Employees</label>
                 <select id="employees" name="employees" class="form-input">
@@ -536,15 +549,32 @@
                   <option value="200+">200+ employees</option>
                 </select>
               </div>
+
               <div>
-                <label for="message" class="block text-accent mb-2 font-medium">Message</label>
-                <textarea id="message" name="message" rows="4" class="form-input"
-                  placeholder="Tell us about your scheduling needs..."></textarea>
+                <label for="message" class="block text-accent mb-2 font-medium">Message *</label>
+                <textarea id="message" name="message" rows="4" class="form-input" required
+                  placeholder="Tell us about your scheduling needs..." maxlength="1000"></textarea>
+                <div class="text-right text-sm text-gray-400 mt-1">
+                  <span id="message-counter">0</span>/1000 characters
+                </div>
               </div>
+
               <button type="submit" class="btn-primary w-full py-4 text-lg font-semibold">
                 Request Demo
               </button>
+
+              <p class="text-xs text-gray-400 text-center">
+                * Required fields. Your data is secure and will only be used to respond to your enquiry.<br>
+                <span class="text-accent">🔒 Secured by Formspree</span>
+              </p>
             </form>
+
+            <!-- Success Message (shown after form submission) -->
+            <div id="form-success-message" class="hidden bg-green-600 text-white p-6 rounded-lg text-center">
+              <span class="material-icons text-4xl mb-4 block">check_circle</span>
+              <h3 class="text-xl font-bold mb-2">Message Sent Successfully!</h3>
+              <p>Thank you for your enquiry. We'll get back to you within 24 hours.</p>
+            </div>
           </div>
         </div>
       </div>

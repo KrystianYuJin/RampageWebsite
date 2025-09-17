@@ -145,12 +145,37 @@ function initFormHandling() {
   if (!form) return;
 
   const inputs = form.querySelectorAll("input, textarea, select");
+  const messageTextarea = document.getElementById("message");
+  const messageCounter = document.getElementById("message-counter");
 
   // Add real-time validation
   inputs.forEach((input) => {
     input.addEventListener("blur", validateField);
     input.addEventListener("input", clearErrorOnType);
   });
+
+  // Character counter for message field
+  if (messageTextarea && messageCounter) {
+    const updateCounter = () => {
+      const currentLength = messageTextarea.value.length;
+      const maxLength = messageTextarea.getAttribute("maxlength");
+      messageCounter.textContent = currentLength;
+      
+      // Change color based on length
+      if (currentLength > maxLength * 0.9) {
+        messageCounter.style.color = "#ef4444";
+      } else if (currentLength > maxLength * 0.75) {
+        messageCounter.style.color = "#f59e0b";
+      } else {
+        messageCounter.style.color = "#64748b";
+      }
+    };
+
+    messageTextarea.addEventListener("input", updateCounter);
+    
+    // Global function for resetting counter
+    window.updateMessageCounter = updateCounter;
+  }
 
   form.addEventListener("submit", handleFormSubmit);
 }
@@ -164,17 +189,52 @@ function validateField(e) {
 
   // Validate based on field type
   let isValid = true;
+  let errorMessage = "";
 
   if (field.hasAttribute("required") && !value) {
     isValid = false;
+    errorMessage = "This field is required";
   } else if (field.type === "email" && value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     isValid = emailRegex.test(value);
+    errorMessage = "Please enter a valid email address";
+  } else if (field.name === "name" && value) {
+    // Name validation - no special characters except spaces, hyphens, apostrophes
+    const nameRegex = /^[a-zA-Z\s\-'\.]+$/;
+    if (!nameRegex.test(value)) {
+      isValid = false;
+      errorMessage = "Business name contains invalid characters";
+    } else if (value.length < 2) {
+      isValid = false;
+      errorMessage = "Business name must be at least 2 characters";
+    }
+  } else if (field.name === "message" && value) {
+    // Message validation - check for suspicious content
+    const suspiciousPatterns = [
+      /<script/i,
+      /javascript:/i,
+      /vbscript:/i,
+      /onload=/i,
+      /onclick=/i,
+      /<iframe/i,
+      /\[url=/i,
+      /\[link=/i,
+      /http[s]?:\/\/[^\s]+\.(tk|ml|ga|cf|bit\.ly|tinyurl)/i
+    ];
+    
+    const isSuspicious = suspiciousPatterns.some(pattern => pattern.test(value));
+    if (isSuspicious) {
+      isValid = false;
+      errorMessage = "Message contains invalid content";
+    } else if (value.length < 10) {
+      isValid = false;
+      errorMessage = "Please provide more details (minimum 10 characters)";
+    }
   }
 
   if (!isValid) {
     field.classList.add("error");
-    showFieldError(field);
+    showFieldError(field, errorMessage);
   } else {
     clearFieldError(field);
   }
@@ -190,7 +250,7 @@ function clearErrorOnType(e) {
   }
 }
 
-function showFieldError(field) {
+function showFieldError(field, message = "This field is required") {
   const errorId = field.id + "-error";
   let errorElement = document.getElementById(errorId);
 
@@ -201,8 +261,8 @@ function showFieldError(field) {
     field.parentNode.insertBefore(errorElement, field.nextSibling);
   }
 
-  let errorMessage = "This field is required";
-  if (field.type === "email") {
+  let errorMessage = message;
+  if (field.type === "email" && message === "This field is required") {
     errorMessage = "Please enter a valid email address";
   }
 
@@ -220,7 +280,7 @@ function clearFieldError(field) {
   }
 }
 
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
 
   const form = e.target;
@@ -235,25 +295,214 @@ function handleFormSubmit(e) {
   });
 
   if (isFormValid) {
-    showSuccessMessage();
-    // Here you would typically send the data to your server
-    console.log("Form would be submitted:", new FormData(form));
+    await submitFormspreeForm(form);
   }
 }
 
-function showSuccessMessage() {
+async function submitFormspreeForm(form) {
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.textContent;
+  
+  // Show loading state
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+  submitButton.style.opacity = '0.7';
+  
+  try {
+    // Check honeypot field for spam protection
+    const honeypot = form.querySelector('input[name="_gotcha"]').value;
+    
+    if (honeypot) {
+      throw new Error('Spam detected');
+    }
+
+    // Rate limiting check
+    if (!checkRateLimit()) {
+      throw new Error('Too many requests. Please wait before submitting again.');
+    }
+
+    // Submit to Formspree
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      showSuccessMessage("Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.");
+      form.reset();
+      updateMessageCounter(); // Reset character counter
+      updateRateLimit();
+    } else {
+      const errorData = await response.json();
+      if (errorData.errors) {
+        const errorMessages = errorData.errors.map(error => error.message).join(', ');
+        throw new Error(errorMessages);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    }
+
+  } catch (error) {
+    console.error('Form submission error:', error);
+    let errorMessage = error.message;
+    
+    if (error.message.includes('network') || error.message.includes('fetch')) {
+      errorMessage = 'Network error. Please check your connection and try again.';
+    } else if (error.message.includes('Spam detected')) {
+      errorMessage = 'Submission blocked. Please try again.';
+    }
+    
+    showErrorMessage(errorMessage + ' If the problem persists, please contact us directly at hello@shiftsync.im');
+  } finally {
+    // Reset button state
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+    submitButton.style.opacity = '1';
+  }
+}
+
+// Rate limiting functions
+function checkRateLimit() {
+  const lastSubmission = localStorage.getItem('lastContactSubmission');
+  const rateLimitWindow = 60000; // 1 minute
+
+  if (lastSubmission) {
+    const timeSinceLastSubmission = Date.now() - parseInt(lastSubmission);
+    return timeSinceLastSubmission > rateLimitWindow;
+  }
+  return true;
+}
+
+function updateRateLimit() {
+  localStorage.setItem('lastContactSubmission', Date.now().toString());
+}
+
+function showSuccessMessage(message = "Your message has been sent successfully! We'll get back to you within 24 hours.") {
   const form = document.querySelector(".contact-form");
   const button = form.querySelector('button[type="submit"]');
 
-  const originalText = button.textContent;
-  button.textContent = "Request Sent! ✓";
-  button.style.background = "linear-gradient(135deg, #10b981, #059669)";
+  // Create success notification
+  const notification = createNotification(message, 'success');
+  document.body.appendChild(notification);
 
+  // Animate in notification
+  setTimeout(() => notification.classList.add('show'), 100);
+
+  // Remove notification after 5 seconds
   setTimeout(() => {
-    button.textContent = originalText;
-    button.style.background = "";
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 5000);
+
+  // Reset form
+  setTimeout(() => {
     form.reset();
-  }, 3000);
+  }, 1000);
+}
+
+function showErrorMessage(message = "Sorry, there was an error sending your message. Please try again later.") {
+  const notification = createNotification(message, 'error');
+  document.body.appendChild(notification);
+
+  // Animate in notification
+  setTimeout(() => notification.classList.add('show'), 100);
+
+  // Remove notification after 6 seconds (longer for error messages)
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 6000);
+}
+
+function createNotification(message, type) {
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  
+  const icon = type === 'success' ? 'check_circle' : 'error';
+  const bgColor = type === 'success' 
+    ? 'linear-gradient(135deg, #10b981, #059669)' 
+    : 'linear-gradient(135deg, #ef4444, #dc2626)';
+
+  notification.innerHTML = `
+    <div class="notification-content">
+      <span class="material-icons notification-icon">${icon}</span>
+      <span class="notification-message">${message}</span>
+      <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+  `;
+
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${bgColor};
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 500px;
+    transform: translateX(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+  `;
+
+  // Add styles for notification content
+  const contentStyle = `
+    .notification-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .notification-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .notification-message {
+      flex: 1;
+      font-weight: 500;
+    }
+    .notification-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .notification-close:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .notification-close .material-icons {
+      font-size: 1.25rem;
+    }
+    .notification.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  `;
+
+  // Add styles to document if not already added
+  if (!document.getElementById('notification-styles')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'notification-styles';
+    styleSheet.textContent = contentStyle;
+    document.head.appendChild(styleSheet);
+  }
+
+  return notification;
 }
 
 // Mobile menu functionality
