@@ -1,548 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shift Sync - Modern Rota Scheduling | Rampage Limited</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <meta
-      name="description"
-      content="Shift Sync by Rampage Limited - Modern rota scheduling application for stores, cafes, and shift-based businesses. Create rotas, manage holiday requests, and send push notifications."
-    />
-    <meta
-      name="keywords"
-      content="Shift Sync, Rota Scheduling, Employee Management, Holiday Requests, Push Notifications, Rampage Limited, Isle of Man, Store Management, Cafe Scheduling"
-    />
-    <script src="script.js" defer></script>
-    <link rel="icon" type="image/png" href="images/ShiftSyncLogo.png" />
-    <style>
-      /* Inline styles for quick accent tweaks, main theme in style.css */
-    </style>
-  </head>
-  <body class="font-inter antialiased bg-primary">
-    <header
-      class="bg-primary-dark text-accent shadow-xl border-b border-accent-dim"
-    >
-      <nav
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-3">
-          <img
-            src="images/ShiftSyncLogo.png"
-            alt="Shift Sync Logo"
-            class="w-10 h-10 object-contain logo-image"
-          />
-          <div class="text-2xl font-bold text-accent">Shift Sync</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shift Sync - Modern Rota Scheduling | Rampage Limited</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description"
+    content="Shift Sync by Rampage Limited - Modern rota scheduling application for stores, cafes, and shift-based businesses. Create rotas, manage holiday requests, and send push notifications." />
+  <meta name="keywords"
+    content="Shift Sync, Rota Scheduling, Employee Management, Holiday Requests, Push Notifications, Rampage Limited, Isle of Man, Store Management, Cafe Scheduling" />
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="images/ShiftSyncLogo.png" />
+  <style>
+    /* Inline styles for quick accent tweaks, main theme in style.css */
+  </style>
+</head>
+
+<body class="font-inter antialiased bg-primary">
+  <header class="bg-primary-dark text-accent shadow-xl border-b border-accent-dim">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="images/ShiftSyncLogo.png" alt="Shift Sync Logo" class="w-10 h-10 object-contain logo-image" />
+        <div class="text-2xl font-bold text-accent">Shift Sync</div>
+      </div>
+      <ul class="hidden md:flex space-x-8">
+        <li>
+          <a href="#" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Home">Home</a>
+        </li>
+        <li>
+          <a href="#features" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Features">Features</a>
+        </li>
+        <li>
+          <a href="#benefits" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Benefits">Benefits</a>
+        </li>
+        <li>
+          <a href="#pricing" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Pricing">Pricing</a>
+        </li>
+        <li>
+          <a href="#contact" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Contact">Contact</a>
+        </li>
+      </ul>
+      <button class="md:hidden text-accent text-2xl" id="mobile-menu-btn">
+        <span class="material-icons">menu</span>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section relative overflow-hidden">
+    <!-- Floating Particles -->
+    <div class="floating-particle shape-1"></div>
+    <div class="floating-particle shape-2"></div>
+    <div class="floating-particle shape-3"></div>
+
+    <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-secondary opacity-95"></div>
+    <div class="relative z-10 container mx-auto px-6 py-20 lg:py-32">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-accent leading-tight">
+          Shift Sync
+        </h1>
+        <p class="text-xl lg:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+          Revolutionary rota scheduling for modern businesses. Streamline your
+          workforce management with intelligent scheduling, holiday requests,
+          and instant notifications.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <button class="btn-primary px-8 py-4 text-lg font-semibold">
+            Start Free Trial
+          </button>
+          <button class="btn-secondary px-8 py-4 text-lg font-semibold">
+            Watch Demo
+          </button>
         </div>
-        <ul class="hidden md:flex space-x-8">
-          <li>
-            <a
-              href="#"
-              class="nav-link hover:text-accent-bright transition-colors duration-300"
-              aria-label="Home"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="#features"
-              class="nav-link hover:text-accent-bright transition-colors duration-300"
-              aria-label="Features"
-              >Features</a
-            >
-          </li>
-          <li>
-            <a
-              href="#benefits"
-              class="nav-link hover:text-accent-bright transition-colors duration-300"
-              aria-label="Benefits"
-              >Benefits</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="nav-link hover:text-accent-bright transition-colors duration-300"
-              aria-label="Contact"
-              >Contact</a
-            >
-          </li>
-        </ul>
-        <button class="md:hidden text-accent text-2xl" id="mobile-menu-btn">
-          <span class="material-icons">menu</span>
-        </button>
-      </nav>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero-section relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-secondary opacity-95"
-      ></div>
-      <div class="relative z-10 container mx-auto px-6 py-20 lg:py-32">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1
-            class="text-5xl lg:text-7xl font-bold mb-6 text-accent leading-tight"
-          >
-            Shift Sync
-          </h1>
-          <p class="text-xl lg:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-            Revolutionary rota scheduling for modern businesses. Streamline your
-            workforce management with intelligent scheduling, holiday requests,
-            and instant notifications.
+        <div class="text-sm text-gray-400">
+          <p>✨ Trusted by businesses across the Isle of Man and beyond</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <div class="scroll-down-arrow">
+      <div class="scroll-cta-text">See what we do</div>
+      <span class="material-icons">keyboard_arrow_down</span>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primary to-transparent"></div>
+  </section>
+  <main>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-primary-dark">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            Powerful Features
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Everything you need to manage your workforce efficiently and keep
+            your team connected.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button class="btn-primary px-8 py-4 text-lg font-semibold">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">schedule</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Smart Rota Creation
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Effortlessly build and update rotas using flexible scheduling patterns.
+              Easily accommodate shift changes, employee availability, and evolving business needs.
+            </p>
+          </div>
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">smartphone</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">Mobile Access</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Employees can view their shifts, swap with colleagues, and
+              receive updates instantly on any device. Perfect for on-the-go
+              workforce management.
+            </p>
+          </div>
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">beach_access</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Holiday Management
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Streamlined holiday request system with automatic approval
+              workflows, conflict detection, and integration with your rota
+              planning.
+            </p>
+          </div>
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">notifications</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Push Notifications
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Keep your team informed with instant notifications for shift
+              changes, new rotas, approved holidays, and important
+              announcements.
+            </p>
+          </div>
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">analytics</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Analytics & Reports
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Gain insights into labor costs, overtime trends, and employee
+              patterns with comprehensive reporting and analytics tools.
+            </p>
+          </div>
+          <div class="feature-card group">
+            <div class="feature-icon">
+              <span class="material-icons">security</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Secure & Compliant
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Enterprise-grade security with data encryption, role-based
+              access, and compliance with employment regulations and data
+              protection laws.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Business Types Section -->
+    <section class="py-20 bg-primary">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            Perfect for Every Business
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            From small cafes to large retail chains, Shift Sync adapts to your
+            business needs.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="business-type-card">
+            <div class="text-4xl mb-4">☕</div>
+            <h3 class="text-xl font-semibold text-accent mb-2">
+              Cafes & Restaurants
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Manage kitchen and front-of-house teams with ease
+            </p>
+          </div>
+          <div class="business-type-card">
+            <div class="text-4xl mb-4">🛍️</div>
+            <h3 class="text-xl font-semibold text-accent mb-2">
+              Retail Stores
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Optimize floor coverage and customer service
+            </p>
+          </div>
+          <div class="business-type-card">
+            <div class="text-4xl mb-4">🏥</div>
+            <h3 class="text-xl font-semibold text-accent mb-2">Healthcare</h3>
+            <p class="text-gray-300 text-sm">
+              Ensure proper staffing for patient care
+            </p>
+          </div>
+          <div class="business-type-card">
+            <div class="text-4xl mb-4">🏢</div>
+            <h3 class="text-xl font-semibold text-accent mb-2">
+              Corporate Teams
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Coordinate office schedules and remote work
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-primary-dark">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            Why Choose Shift Sync?
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Built for the modern workplace with cutting-edge technology and
+            user-centric design.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="benefit-card text-center">
+            <div class="benefit-icon">
+              <span class="material-icons">support</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">Local Support</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Based in the Isle of Man with dedicated local support team. We
+              understand your business environment.
+            </p>
+          </div>
+          <div class="benefit-card text-center">
+            <div class="benefit-icon">
+              <span class="material-icons">speed</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Lightning Fast
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Built with modern web technologies for instant loading and
+              real-time updates. No waiting, just productivity.
+            </p>
+          </div>
+          <div class="benefit-card text-center">
+            <div class="benefit-icon">
+              <span class="material-icons">devices</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-accent">
+              Cross-Platform
+            </h3>
+            <p class="text-gray-300 leading-relaxed">
+              Works seamlessly on desktop, tablet, and mobile. Your team can
+              access their schedules anywhere, anytime.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-testimonials">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            What Our Clients Say
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Trusted by businesses across the Isle of Man and beyond.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="testimonial-card">
+            <div class="mb-6">
+              <div class="flex text-accent-bright mb-4">
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+              </div>
+              <p class="text-lg text-gray-300 italic leading-relaxed">
+                "Shift Sync transformed how we manage our cafe team. The
+                holiday request system alone saved us hours each week, and our
+                staff love being able to check their rotas on their phones."
+              </p>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary font-bold mr-4">
+                SC
+              </div>
+              <div>
+                <p class="text-accent font-semibold">Sarah Collins</p>
+                <p class="text-gray-400 text-sm">Manager, Island Brew Cafe</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="mb-6">
+              <div class="flex text-accent-bright mb-4">
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+              </div>
+              <p class="text-lg text-gray-300 italic leading-relaxed">
+                "The analytics features help us optimize our staffing costs
+                while ensuring we never miss coverage. Push notifications keep
+                everyone informed instantly. Brilliant system!"
+              </p>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary font-bold mr-4">
+                MT
+              </div>
+              <div>
+                <p class="text-accent font-semibold">Mike Thompson</p>
+                <p class="text-gray-400 text-sm">
+                  Operations Director, Island Retail Group
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-pricing">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Choose the perfect plan for your business. All plans include our core features with no hidden fees.
+          </p>
+        </div>
+
+        <!-- Features Included in All Plans -->
+        <div class="features-included mb-16">
+          <h3 class="text-2xl font-bold text-center mb-8 text-accent">Everything you need, included in every plan</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Smart rota creation</span>
+            </div>
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Mobile access</span>
+            </div>
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Holiday management</span>
+            </div>
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Push notifications</span>
+            </div>
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Analytics & reports</span>
+            </div>
+            <div class="included-feature">
+              <span class="material-icons">check_circle</span>
+              <span>Secure & compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Starter Plan -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="text-2xl font-bold text-accent mb-2">Starter</h3>
+              <p class="text-gray-300 text-sm mb-6">Perfect for small businesses</p>
+              <div class="price-container">
+                <span class="price">£12</span>
+                <span class="price-period">/month</span>
+              </div>
+              <p class="text-gray-400 text-sm">Up to 10 employees</p>
+            </div>
+            <button class="pricing-btn btn-secondary w-full py-3 mt-6">
               Start Free Trial
             </button>
-            <button class="btn-secondary px-8 py-4 text-lg font-semibold">
-              Watch Demo
+          </div>
+
+          <!-- Professional Plan -->
+          <div class="pricing-card pricing-card-featured">
+            <div class="featured-badge">Most Popular</div>
+            <div class="pricing-header">
+              <h3 class="text-2xl font-bold text-accent mb-2">Professional</h3>
+              <p class="text-gray-300 text-sm mb-6">Ideal for growing teams</p>
+              <div class="price-container">
+                <span class="price">£20</span>
+                <span class="price-period">/month</span>
+              </div>
+              <p class="text-gray-400 text-sm">11-25 employees</p>
+            </div>
+            <button class="pricing-btn btn-primary w-full py-3 mt-6">
+              Start Free Trial
             </button>
           </div>
-          <div class="text-sm text-gray-400">
-            <p>✨ Trusted by businesses across the Isle of Man and beyond</p>
+
+          <!-- Enterprise Plan -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="text-2xl font-bold text-accent mb-2">Enterprise</h3>
+              <p class="text-gray-300 text-sm mb-6">For large organizations</p>
+              <div class="price-container">
+                <span class="price">Contact Us</span>
+              </div>
+              <p class="text-gray-400 text-sm">26+ employees</p>
+            </div>
+            <button class="pricing-btn btn-secondary w-full py-3 mt-6">
+              Contact Sales
+            </button>
           </div>
         </div>
       </div>
-      <div
-        class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primary to-transparent"
-      ></div>
     </section>
-    <main>
-      <!-- Features Section -->
-      <section id="features" class="py-20 bg-primary-dark">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-              Powerful Features
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              Everything you need to manage your workforce efficiently and keep
-              your team connected.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">schedule</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Smart Rota Creation
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Create and manage rotas with intelligent scheduling algorithms.
-                Handle complex shift patterns, employee availability, and
-                business requirements effortlessly.
-              </p>
-            </div>
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">smartphone</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">Mobile Access</h3>
-              <p class="text-gray-300 leading-relaxed">
-                Employees can view their shifts, swap with colleagues, and
-                receive updates instantly on any device. Perfect for on-the-go
-                workforce management.
-              </p>
-            </div>
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">beach_access</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Holiday Management
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Streamlined holiday request system with automatic approval
-                workflows, conflict detection, and integration with your rota
-                planning.
-              </p>
-            </div>
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">notifications</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Push Notifications
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Keep your team informed with instant notifications for shift
-                changes, new rotas, approved holidays, and important
-                announcements.
-              </p>
-            </div>
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">analytics</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Analytics & Reports
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Gain insights into labor costs, overtime trends, and employee
-                patterns with comprehensive reporting and analytics tools.
-              </p>
-            </div>
-            <div class="feature-card group">
-              <div class="feature-icon">
-                <span class="material-icons">security</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Secure & Compliant
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Enterprise-grade security with data encryption, role-based
-                access, and compliance with employment regulations and data
-                protection laws.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Business Types Section -->
-      <section class="py-20 bg-primary">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-              Perfect for Every Business
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              From small cafes to large retail chains, Shift Sync adapts to your
-              business needs.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="business-type-card">
-              <div class="text-4xl mb-4">☕</div>
-              <h3 class="text-xl font-semibold text-accent mb-2">
-                Cafes & Restaurants
-              </h3>
-              <p class="text-gray-300 text-sm">
-                Manage kitchen and front-of-house teams with ease
-              </p>
-            </div>
-            <div class="business-type-card">
-              <div class="text-4xl mb-4">🛍️</div>
-              <h3 class="text-xl font-semibold text-accent mb-2">
-                Retail Stores
-              </h3>
-              <p class="text-gray-300 text-sm">
-                Optimize floor coverage and customer service
-              </p>
-            </div>
-            <div class="business-type-card">
-              <div class="text-4xl mb-4">🏥</div>
-              <h3 class="text-xl font-semibold text-accent mb-2">Healthcare</h3>
-              <p class="text-gray-300 text-sm">
-                Ensure proper staffing for patient care
-              </p>
-            </div>
-            <div class="business-type-card">
-              <div class="text-4xl mb-4">🏢</div>
-              <h3 class="text-xl font-semibold text-accent mb-2">
-                Corporate Teams
-              </h3>
-              <p class="text-gray-300 text-sm">
-                Coordinate office schedules and remote work
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Benefits Section -->
-      <section id="benefits" class="py-20 bg-primary-dark">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-              Why Choose Shift Sync?
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              Built for the modern workplace with cutting-edge technology and
-              user-centric design.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="benefit-card text-center">
-              <div class="benefit-icon">
-                <span class="material-icons">support</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">Local Support</h3>
-              <p class="text-gray-300 leading-relaxed">
-                Based in the Isle of Man with dedicated local support team. We
-                understand your business environment.
-              </p>
-            </div>
-            <div class="benefit-card text-center">
-              <div class="benefit-icon">
-                <span class="material-icons">speed</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Lightning Fast
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Built with modern web technologies for instant loading and
-                real-time updates. No waiting, just productivity.
-              </p>
-            </div>
-            <div class="benefit-card text-center">
-              <div class="benefit-icon">
-                <span class="material-icons">devices</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4 text-accent">
-                Cross-Platform
-              </h3>
-              <p class="text-gray-300 leading-relaxed">
-                Works seamlessly on desktop, tablet, and mobile. Your team can
-                access their schedules anywhere, anytime.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Testimonials Section -->
-      <section class="py-20 bg-primary">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-              What Our Clients Say
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              Trusted by businesses across the Isle of Man and beyond.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="testimonial-card">
-              <div class="mb-6">
-                <div class="flex text-accent-bright mb-4">
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                </div>
-                <p class="text-lg text-gray-300 italic leading-relaxed">
-                  "Shift Sync transformed how we manage our cafe team. The
-                  holiday request system alone saved us hours each week, and our
-                  staff love being able to check their rotas on their phones."
-                </p>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary font-bold mr-4"
-                >
-                  SC
-                </div>
-                <div>
-                  <p class="text-accent font-semibold">Sarah Collins</p>
-                  <p class="text-gray-400 text-sm">Manager, Island Brew Cafe</p>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-card">
-              <div class="mb-6">
-                <div class="flex text-accent-bright mb-4">
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                  <span class="material-icons">star</span>
-                </div>
-                <p class="text-lg text-gray-300 italic leading-relaxed">
-                  "The analytics features help us optimize our staffing costs
-                  while ensuring we never miss coverage. Push notifications keep
-                  everyone informed instantly. Brilliant system!"
-                </p>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary font-bold mr-4"
-                >
-                  MT
-                </div>
-                <div>
-                  <p class="text-accent font-semibold">Mike Thompson</p>
-                  <p class="text-gray-400 text-sm">
-                    Operations Director, Island Retail Group
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Contact Section -->
-      <section id="contact" class="py-20 bg-primary-dark">
-        <div class="container mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
-              Get Started Today
-            </h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to revolutionize your workforce management? Contact us for a
-              personalized demo or start your free trial.
-            </p>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div class="contact-info">
-              <h3 class="text-2xl font-bold mb-6 text-accent">
-                Contact Information
-              </h3>
-              <div class="space-y-4">
-                <div class="flex items-center">
-                  <span class="material-icons text-accent mr-4">business</span>
-                  <div>
-                    <p class="text-white font-semibold">Rampage Limited</p>
-                    <p class="text-gray-300">Isle of Man</p>
-                  </div>
-                </div>
-                <div class="flex items-center">
-                  <span class="material-icons text-accent mr-4">email</span>
-                  <div>
-                    <p class="text-white">hello@shiftsync.im</p>
-                  </div>
-                </div>
-                <div class="flex items-center">
-                  <span class="material-icons text-accent mr-4">phone</span>
-                  <div>
-                    <p class="text-white">+44 1624 123456</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-8">
-                <h4 class="text-lg font-semibold text-accent mb-4">
-                  Why Choose Us?
-                </h4>
-                <ul class="space-y-2 text-gray-300">
-                  <li class="flex items-center">
-                    <span class="material-icons text-accent mr-2 text-sm"
-                      >check</span
-                    >
-                    Local Isle of Man business
-                  </li>
-                  <li class="flex items-center">
-                    <span class="material-icons text-accent mr-2 text-sm"
-                      >check</span
-                    >
-                    Dedicated support team
-                  </li>
-                  <li class="flex items-center">
-                    <span class="material-icons text-accent mr-2 text-sm"
-                      >check</span
-                    >
-                    Customizable to your needs
-                  </li>
-                  <li class="flex items-center">
-                    <span class="material-icons text-accent mr-2 text-sm"
-                      >check</span
-                    >
-                    Enterprise-grade security
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="contact-form-container">
-              <form class="contact-form space-y-6">
-                <div>
-                  <label for="name" class="block text-accent mb-2 font-medium"
-                    >Business Name</label
-                  >
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="form-input"
-                    required
-                    placeholder="Enter your business name"
-                  />
-                </div>
-                <div>
-                  <label for="email" class="block text-accent mb-2 font-medium"
-                    >Email Address</label
-                  >
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-input"
-                    required
-                    placeholder="Enter your email"
-                  />
-                </div>
-                <div>
-                  <label
-                    for="employees"
-                    class="block text-accent mb-2 font-medium"
-                    >Number of Employees</label
-                  >
-                  <select id="employees" name="employees" class="form-input">
-                    <option value="">Select range</option>
-                    <option value="1-10">1-10 employees</option>
-                    <option value="11-50">11-50 employees</option>
-                    <option value="51-200">51-200 employees</option>
-                    <option value="200+">200+ employees</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    for="message"
-                    class="block text-accent mb-2 font-medium"
-                    >Message</label
-                  >
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    class="form-input"
-                    placeholder="Tell us about your scheduling needs..."
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  class="btn-primary w-full py-4 text-lg font-semibold"
-                >
-                  Request Demo
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="bg-primary text-center py-8 border-t border-accent-dim">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary-dark">
       <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <div
-              class="flex items-center justify-center md:justify-start space-x-3 mb-2"
-            >
-              <img
-                src="images/ShiftSyncLogo.png"
-                alt="Shift Sync Logo"
-                class="w-8 h-8 object-contain logo-image"
-              />
-              <span class="text-xl font-bold text-accent">Shift Sync</span>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
+            Get Started Today
+          </h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Ready to revolutionize your workforce management? Contact us for a
+            personalized demo or start your free trial.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div class="contact-info">
+            <h3 class="text-2xl font-bold mb-6 text-accent">
+              Contact Information
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <span class="material-icons text-accent mr-4">business</span>
+                <div>
+                  <p class="text-white font-semibold">Rampage Limited</p>
+                  <p class="text-gray-300">Isle of Man</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="material-icons text-accent mr-4">email</span>
+                <div>
+                  <p class="text-white">hello@shiftsync.im</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <span class="material-icons text-accent mr-4">phone</span>
+                <div>
+                  <p class="text-white">+44 1624 123456</p>
+                </div>
+              </div>
             </div>
-            <p class="text-gray-400 text-sm">by Rampage Limited, Isle of Man</p>
+            <div class="mt-8">
+              <h4 class="text-lg font-semibold text-accent mb-4">
+                Why Choose Us?
+              </h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-center">
+                  <span class="material-icons text-accent mr-2 text-sm">check</span>
+                  Local Isle of Man business
+                </li>
+                <li class="flex items-center">
+                  <span class="material-icons text-accent mr-2 text-sm">check</span>
+                  Dedicated support team
+                </li>
+                <li class="flex items-center">
+                  <span class="material-icons text-accent mr-2 text-sm">check</span>
+                  Customizable to your needs
+                </li>
+                <li class="flex items-center">
+                  <span class="material-icons text-accent mr-2 text-sm">check</span>
+                  Enterprise-grade security
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="text-gray-400 text-sm">
-            <p>&copy; 2025 Rampage Limited. All rights reserved.</p>
+          <div class="contact-form-container">
+            <form class="contact-form space-y-6">
+              <div>
+                <label for="name" class="block text-accent mb-2 font-medium">Business Name</label>
+                <input type="text" id="name" name="name" class="form-input" required
+                  placeholder="Enter your business name" />
+              </div>
+              <div>
+                <label for="email" class="block text-accent mb-2 font-medium">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" required
+                  placeholder="Enter your email" />
+              </div>
+              <div>
+                <label for="employees" class="block text-accent mb-2 font-medium">Number of Employees</label>
+                <select id="employees" name="employees" class="form-input">
+                  <option value="">Select range</option>
+                  <option value="1-10">1-10 employees</option>
+                  <option value="11-50">11-50 employees</option>
+                  <option value="51-200">51-200 employees</option>
+                  <option value="200+">200+ employees</option>
+                </select>
+              </div>
+              <div>
+                <label for="message" class="block text-accent mb-2 font-medium">Message</label>
+                <textarea id="message" name="message" rows="4" class="form-input"
+                  placeholder="Tell us about your scheduling needs..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-4 text-lg font-semibold">
+                Request Demo
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+  </main>
+  <footer class="bg-primary text-center py-8 border-t border-accent-dim">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center justify-center md:justify-start space-x-3 mb-2">
+            <img src="images/ShiftSyncLogo.png" alt="Shift Sync Logo" class="w-8 h-8 object-contain logo-image" />
+            <span class="text-xl font-bold text-accent">Shift Sync</span>
+          </div>
+          <p class="text-gray-400 text-sm">by Rampage Limited, Isle of Man</p>
+        </div>
+        <div class="text-gray-400 text-sm">
+          <p>&copy; 2025 Rampage Limited. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

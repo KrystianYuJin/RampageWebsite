@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initCounterAnimations();
   initSmoothScrolling();
   initEnhancedAnimations();
+  initScrollArrow();
   createFloatingParticles();
 });
 
@@ -422,3 +423,18 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Scroll Arrow Functionality
+function initScrollArrow() {
+  const scrollArrow = document.querySelector('.scroll-down-arrow');
+  const featuresSection = document.querySelector('#features');
+  
+  if (scrollArrow && featuresSection) {
+    scrollArrow.addEventListener('click', function() {
+      featuresSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+}
