@@ -144,43 +144,52 @@ function createRippleEffect(e, button) {
 
 // Enhanced form handling with validation
 function initFormHandling() {
-  const form = document.querySelector(".contact-form");
-  if (!form) return;
+  const forms = document.querySelectorAll(".contact-form");
+  if (!forms.length) return;
 
-  const inputs = form.querySelectorAll("input, textarea, select");
-  const messageTextarea = document.getElementById("message");
-  const messageCounter = document.getElementById("message-counter");
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll("input, textarea, select");
+    const updateCounter = setupCharacterCounter(form);
 
-  // Add real-time validation
-  inputs.forEach((input) => {
-    input.addEventListener("blur", validateField);
-    input.addEventListener("input", clearErrorOnType);
+    // Add real-time validation
+    inputs.forEach((input) => {
+      input.addEventListener("blur", validateField);
+      input.addEventListener("input", clearErrorOnType);
+    });
+
+    form.addEventListener("submit", (event) => handleFormSubmit(event, updateCounter));
   });
+}
 
-  // Character counter for message field
-  if (messageTextarea && messageCounter) {
-    const updateCounter = () => {
-      const currentLength = messageTextarea.value.length;
-      const maxLength = messageTextarea.getAttribute("maxlength");
-      messageCounter.textContent = currentLength;
-      
-      // Change color based on length
-      if (currentLength > maxLength * 0.9) {
-        messageCounter.style.color = "#ef4444";
-      } else if (currentLength > maxLength * 0.75) {
-        messageCounter.style.color = "#f59e0b";
-      } else {
-        messageCounter.style.color = "#64748b";
-      }
-    };
+function setupCharacterCounter(form) {
+  const textarea = form.querySelector("textarea[maxlength]");
+  if (!textarea) return null;
 
-    messageTextarea.addEventListener("input", updateCounter);
-    
-    // Global function for resetting counter
-    window.updateMessageCounter = updateCounter;
-  }
+  const counterWrapper = form.querySelector(`[data-counter-for="${textarea.id}"]`);
+  const counterSpan = counterWrapper ? counterWrapper.querySelector("span") : null;
+  if (!counterWrapper || !counterSpan) return null;
 
-  form.addEventListener("submit", handleFormSubmit);
+  const maxLength = parseInt(textarea.getAttribute("maxlength"), 10) || 0;
+
+  const updateCounter = () => {
+    const currentLength = textarea.value.length;
+    counterSpan.textContent = currentLength;
+
+    if (!maxLength) return;
+
+    if (currentLength > maxLength * 0.9) {
+      counterSpan.style.color = "#ef4444";
+    } else if (currentLength > maxLength * 0.75) {
+      counterSpan.style.color = "#f59e0b";
+    } else {
+      counterSpan.style.color = "#64748b";
+    }
+  };
+
+  textarea.addEventListener("input", updateCounter);
+  updateCounter();
+
+  return updateCounter;
 }
 
 function validateField(e) {
@@ -201,7 +210,7 @@ function validateField(e) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     isValid = emailRegex.test(value);
     errorMessage = "Please enter a valid email address";
-  } else if (field.name === "name" && value) {
+  } else if (["name", "business_name", "company_name", "contact_name"].includes(field.name) && value) {
     // Name validation - no special characters except spaces, hyphens, apostrophes
     const nameRegex = /^[a-zA-Z\s\-'\.]+$/;
     if (!nameRegex.test(value)) {
@@ -283,7 +292,7 @@ function clearFieldError(field) {
   }
 }
 
-async function handleFormSubmit(e) {
+async function handleFormSubmit(e, updateCounter) {
   e.preventDefault();
 
   const form = e.target;
@@ -298,11 +307,11 @@ async function handleFormSubmit(e) {
   });
 
   if (isFormValid) {
-    await submitFormspreeForm(form);
+    await submitFormspreeForm(form, updateCounter);
   }
 }
 
-async function submitFormspreeForm(form) {
+async function submitFormspreeForm(form, updateCounter) {
   const submitButton = form.querySelector('button[type="submit"]');
   const originalButtonText = submitButton.textContent;
   
@@ -337,7 +346,9 @@ async function submitFormspreeForm(form) {
     if (response.ok) {
       showSuccessMessage("Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.");
       form.reset();
-      updateMessageCounter(); // Reset character counter
+      if (typeof updateCounter === "function") {
+        updateCounter();
+      }
       updateRateLimit();
     } else {
       const errorData = await response.json();
