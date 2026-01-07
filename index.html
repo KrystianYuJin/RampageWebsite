@@ -41,6 +41,10 @@
             aria-label="Benefits">Benefits</a>
         </li>
         <li>
+          <a href="#beta-signup" class="nav-link hover:text-accent-bright transition-colors duration-300"
+            aria-label="Beta Discount">Beta</a>
+        </li>
+        <li>
           <a href="#pricing" class="nav-link hover:text-accent-bright transition-colors duration-300"
             aria-label="Pricing">Pricing</a>
         </li>
@@ -64,11 +68,19 @@
     <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-secondary opacity-95"></div>
     <div class="relative z-10 container mx-auto px-6 py-20 lg:py-32">
       <div class="max-w-4xl mx-auto text-center">
+        <div class="beta-offer-banner">
+          <div class="beta-offer-text">
+            <span class="beta-offer-badge">Limited-time beta</span>
+            <span class="beta-offer-copy">Join our beta to lock in a launch discount on your Shift Sync
+              subscription. Sign up ends soon!</span>
+          </div>
+          <a class="btn-offer" href="#beta-signup">Claim beta discount</a>
+        </div>
         <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-accent leading-tight">
           Shift Sync
         </h1>
         <p class="text-xl lg:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-          Revolutionary rota scheduling for modern businesses. Streamline your
+          Modern rota scheduling for modern businesses. Streamline your
           workforce management with intelligent scheduling, holiday requests,
           and instant notifications.
         </p>
@@ -213,7 +225,7 @@
               Retail Stores
             </h3>
             <p class="text-gray-300 text-sm">
-              Optimize floor coverage and customer service
+              Optimise floor coverage and customer service
             </p>
           </div>
           <div class="business-type-card">
@@ -335,7 +347,7 @@
                 <span class="material-icons">star</span>
               </div>
               <p class="text-lg text-gray-300 italic leading-relaxed">
-                "The analytics features help us optimize our staffing costs
+                "The analytics features help us optimise our staffing costs
                 while ensuring we never miss coverage. Push notifications keep
                 everyone informed instantly. Brilliant system!"
               </p>
@@ -438,7 +450,7 @@
           <div class="pricing-card">
             <div class="pricing-header">
               <h3 class="text-2xl font-bold text-accent mb-2">Enterprise</h3>
-              <p class="text-gray-300 text-sm mb-6">For large organizations</p>
+              <p class="text-gray-300 text-sm mb-6">For large organisations</p>
               <div class="price-container">
                 <span class="price">Contact Us</span>
               </div>
@@ -447,6 +459,135 @@
             <button class="pricing-btn btn-secondary w-full py-3 mt-6">
               Contact Sales
             </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beta Signup Section -->
+    <section id="beta-signup" class="py-20 bg-primary">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div class="beta-signup-copy">
+            <p class="beta-pill">Beta launch discount</p>
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">Save on your Shift Sync subscription</h2>
+            <p class="text-lg text-gray-300 mb-6">Sign up for the beta and help us test new functionality. Lock in a
+              discounted subscription for launch and get priority onboarding support.</p>
+            <ul class="beta-benefits-list">
+              <li><span class="material-icons">discount</span>
+                <div>
+                  <p class="text-white font-semibold">Launch discount locked in</p>
+                  <p class="text-gray-400 text-sm">Exclusive pricing for teams that join during the beta window.</p>
+                </div>
+              </li>
+              <li><span class="material-icons">science</span>
+                <div>
+                  <p class="text-white font-semibold">Early access to new features</p>
+                  <p class="text-gray-400 text-sm">Test upcoming scheduling, reporting, and notification updates first.
+                  </p>
+                </div>
+              </li>
+              <li><span class="material-icons">support_agent</span>
+                <div>
+                  <p class="text-white font-semibold">White-glove onboarding</p>
+                  <p class="text-gray-400 text-sm">Guided setup plus direct feedback loop with our product team.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="beta-deadline-card">
+              <div>
+                <p class="text-sm uppercase tracking-wide text-gray-300">Offer ends soon</p>
+                <p class="text-xl font-semibold text-white">Reserve your spot by January 31</p>
+              </div>
+              <a href="#beta-signup" class="btn-offer btn-offer-ghost">Secure my discount</a>
+            </div>
+          </div>
+
+          <div class="contact-form-container beta-form-shell">
+            <form class="contact-form beta-signup-form space-y-6" action="https://formspree.io/f/mjkeqjqj" method="POST"
+              data-form-type="formspree">
+
+              <input type="text" name="_gotcha" style="display:none" />
+              <input type="hidden" name="_subject" value="New Beta Signup for Shift Sync" />
+              <input type="hidden" name="_next"
+                value="https://krystianyujin.github.io/RampageWebsite/#beta-signup?success=true" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="form_variant" value="beta_discount_signup" />
+
+              <div>
+                <label for="beta-contact-name" class="block text-accent mb-2 font-medium">Your Name *</label>
+                <input type="text" id="beta-contact-name" name="contact_name" class="form-input" required
+                  placeholder="Jane Doe" maxlength="100" />
+              </div>
+
+              <div>
+                <label for="beta-company" class="block text-accent mb-2 font-medium">Company Name *</label>
+                <input type="text" id="beta-company" name="company_name" class="form-input" required
+                  placeholder="Your company" maxlength="120" />
+              </div>
+
+              <div>
+                <label for="beta-email" class="block text-accent mb-2 font-medium">Work Email *</label>
+                <input type="email" id="beta-email" name="_replyto" class="form-input" required
+                  placeholder="you@company.com" maxlength="120" />
+              </div>
+
+              <div>
+                <label for="beta-industry" class="block text-accent mb-2 font-medium">Industry *</label>
+                <select id="beta-industry" name="industry" class="form-input" required>
+                  <option value="">Select industry</option>
+                  <option value="Hospitality">Hospitality</option>
+                  <option value="Retail">Retail</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Manufacturing">Manufacturing</option>
+                  <option value="Professional Services">Professional Services</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="beta-hear" class="block text-accent mb-2 font-medium">How did you hear about us? *</label>
+                <select id="beta-hear" name="referral_source" class="form-input" required>
+                  <option value="">Choose an option</option>
+                  <option value="Referral">Referral</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Search">Search</option>
+                  <option value="Event">Event / Meetup</option>
+                  <option value="Local network">Local network</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="beta-employees" class="block text-accent mb-2 font-medium">How many employees will use Shift
+                  Sync? *</label>
+                <select id="beta-employees" name="expected_users" class="form-input" required>
+                  <option value="">Select range</option>
+                  <option value="1-10">1-10 people</option>
+                  <option value="11-50">11-50 people</option>
+                  <option value="51-200">51-200 people</option>
+                  <option value="200+">200+ people</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="beta-notes" class="block text-accent mb-2 font-medium">Goals / notes</label>
+                <textarea id="beta-notes" name="notes" rows="4" class="form-input"
+                  placeholder="Share what you're interested in the most or any rollout timing details"
+                  maxlength="600"></textarea>
+                <div class="char-counter text-right text-sm text-gray-400 mt-1" data-counter-for="beta-notes">
+                  <span>0</span>/600 characters
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary w-full py-4 text-lg font-semibold">
+                Join the beta & reserve discount
+              </button>
+
+              <p class="text-xs text-gray-400 text-center">
+                We will confirm your discount via email and share the beta onboarding plan.
+              </p>
+            </form>
           </div>
         </div>
       </div>
@@ -478,7 +619,7 @@
                 <div>
                   <p class="text-white font-semibold text-lg">Rampage Limited</p>
                   <p class="text-gray-300">Isle of Man</p>
-                  <p class="text-gray-400 text-sm mt-1">Registered Company</p>
+                  <p class="text-gray-400 text-sm mt-1">Company Registration No 136476C</p>
                 </div>
               </div>
 
@@ -522,7 +663,7 @@
                     class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
                     <span class="material-icons text-white text-sm">check</span>
                   </div>
-                  <span class="group-hover:text-white transition-colors duration-300">Customizable to your needs</span>
+                  <span class="group-hover:text-white transition-colors duration-300">Customisable to your needs</span>
                 </li>
                 <li class="flex items-center group transition-all duration-300">
                   <div
@@ -574,8 +715,8 @@
                 <label for="message" class="block text-accent mb-2 font-medium">Message *</label>
                 <textarea id="message" name="message" rows="4" class="form-input" required
                   placeholder="Tell us how we can help you..." maxlength="1000"></textarea>
-                <div class="text-right text-sm text-gray-400 mt-1">
-                  <span id="message-counter">0</span>/1000 characters
+                <div class="char-counter text-right text-sm text-gray-400 mt-1" data-counter-for="message">
+                  <span>0</span>/1000 characters
                 </div>
               </div>
 
