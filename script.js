@@ -765,9 +765,9 @@ function initTrialButtons() {
       button.textContent = 'Redirecting...';
       button.disabled = true;
       
-      // Redirect to scheduler.rampage.im
+      // Redirect to shiftsync.rampage.im
       setTimeout(() => {
-        window.open('https://scheduler.rampage.im', '_blank');
+        window.open('https://shiftsync.rampage.im', '_blank');
         
         // Reset button state
         button.textContent = originalText;
