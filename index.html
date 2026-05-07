@@ -120,6 +120,24 @@
       <button class="md:hidden text-accent text-2xl" id="mobile-menu-btn">
         <span class="material-icons">menu</span>
       </button>
+      <div class="hidden md:flex items-center gap-2 ml-4">
+        <a href="https://www.facebook.com/profile.php?id=61580098871516" target="_blank" rel="noopener noreferrer"
+          class="social-icon-link" aria-label="Shift Sync on Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <path
+              d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/shiftsync-im" target="_blank" rel="noopener noreferrer"
+          class="social-icon-link" aria-label="Shift Sync on LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+      </div>
     </nav>
   </header>
   <!-- Hero Section -->
@@ -128,37 +146,47 @@
     <div class="floating-particle shape-1"></div>
     <div class="floating-particle shape-2"></div>
     <div class="floating-particle shape-3"></div>
+    <!-- Grid mesh overlay -->
+    <div class="hero-grid-overlay"></div>
+    <!-- Sweeping light beam -->
+    <div class="hero-beam"></div>
 
     <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-secondary opacity-95"></div>
     <div class="relative z-10 container mx-auto px-6 py-20 lg:py-32">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="beta-offer-banner">
-          <div class="beta-offer-text">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Hero text -->
+        <div class="flex-1 text-center lg:text-left">
+          <a href="#beta-signup" class="beta-offer-banner">
             <span class="beta-offer-badge">Limited-time beta</span>
-            <span class="beta-offer-copy">Join our beta to lock in a launch discount on your Shift Sync
-              subscription. Sign up ends soon!</span>
+            <span class="beta-offer-copy">Lock in your launch discount →</span>
+          </a>
+          <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-accent leading-tight">
+            Shift Sync
+          </h1>
+          <p class="text-xl lg:text-2xl mb-8 text-gray-300 max-w-2xl">
+            Modern rota scheduling for modern businesses. Streamline your
+            workforce management with intelligent scheduling, holiday requests,
+            and instant notifications.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+            <div class="btn-pulse-wrap">
+              <button class="btn-primary px-8 py-4 text-lg font-semibold">
+                Start Free Trial
+              </button>
+              <span class="btn-ring btn-ring-1"></span>
+              <span class="btn-ring btn-ring-2"></span>
+            </div>
           </div>
-          <a class="btn-offer" href="#beta-signup">Claim beta discount</a>
         </div>
-        <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-accent leading-tight">
-          Shift Sync
-        </h1>
-        <p class="text-xl lg:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
-          Modern rota scheduling for modern businesses. Streamline your
-          workforce management with intelligent scheduling, holiday requests,
-          and instant notifications.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <button class="btn-primary px-8 py-4 text-lg font-semibold">
-            Start Free Trial
-          </button>
-          <!-- <button class="btn-secondary px-8 py-4 text-lg font-semibold">
-            Watch Demo
-          </button> -->
+        <!-- App reel -->
+        <div class="flex-shrink-0 flex justify-center">
+          <div
+            style="border-radius:20px;overflow:hidden;box-shadow:0 16px 60px rgba(0,0,0,0.7);width:400px;height:711px;">
+            <div class="fb-video" data-href="https://www.facebook.com/reel/2464473947287647/" data-width="400"
+              data-autoplay="true" data-allowfullscreen="true" data-show-text="false" id="hero-reel">
+            </div>
+          </div>
         </div>
-        <!-- <div class="text-sm text-gray-400">
-          <p>✨ Trusted by businesses across the Isle of Man and beyond</p>
-        </div> -->
       </div>
     </div>
 
@@ -170,17 +198,49 @@
 
     <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primary to-transparent"></div>
   </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="container mx-auto px-6">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-counter="2500">0</span><span
+              class="stat-suffix">+</span></div>
+          <span class="stat-label">Shifts scheduled monthly</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-counter="98">0</span><span
+              class="stat-suffix">%</span></div>
+          <span class="stat-label">On-time rota delivery</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-counter="5">0</span><span
+              class="stat-suffix">hrs</span></div>
+          <span class="stat-label">Saved per manager, per week</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number-wrap"><span class="stat-number" data-counter="100">0</span><span
+              class="stat-suffix">%</span></div>
+          <span class="stat-label">Cloud-based, zero install</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main>
     <!-- Features Section -->
     <section id="features" class="py-20 bg-primary-dark">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+          <span class="section-eyebrow">✦ Features</span>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
             Powerful Features
           </h2>
           <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Everything you need to manage your workforce efficiently and keep
-            your team connected.
+            Everything you need to manage your workforce efficiently and keep your team connected.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -265,6 +325,7 @@
     <section class="py-20 bg-primary">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+          <span class="section-eyebrow">✦ Who We Serve</span>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
             Perfect for Every Business
           </h2>
@@ -312,10 +373,31 @@
       </div>
     </section>
 
+    <!-- Marquee strip -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Cafes &amp; Coffee Shops</span><span class="marquee-dot">✦</span>
+        <span>Retail Stores</span><span class="marquee-dot">✦</span>
+        <span>Restaurants</span><span class="marquee-dot">✦</span>
+        <span>Healthcare Teams</span><span class="marquee-dot">✦</span>
+        <span>Corporate Offices</span><span class="marquee-dot">✦</span>
+        <span>Hospitality</span><span class="marquee-dot">✦</span>
+        <span>Logistics</span><span class="marquee-dot">✦</span>
+        <span>Cafes &amp; Coffee Shops</span><span class="marquee-dot">✦</span>
+        <span>Retail Stores</span><span class="marquee-dot">✦</span>
+        <span>Restaurants</span><span class="marquee-dot">✦</span>
+        <span>Healthcare Teams</span><span class="marquee-dot">✦</span>
+        <span>Corporate Offices</span><span class="marquee-dot">✦</span>
+        <span>Hospitality</span><span class="marquee-dot">✦</span>
+        <span>Logistics</span><span class="marquee-dot">✦</span>
+      </div>
+    </div>
+
     <!-- Benefits Section -->
     <section id="benefits" class="py-20 bg-primary-dark">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+          <span class="section-eyebrow">✦ Benefits</span>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
             Why Choose Shift Sync?
           </h2>
@@ -437,6 +519,7 @@
     <section id="pricing" class="py-20 bg-pricing">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+          <span class="section-eyebrow">✦ Pricing</span>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
             Simple, Transparent Pricing
           </h2>
@@ -533,7 +616,7 @@
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div class="beta-signup-copy">
-            <p class="beta-pill">Beta launch discount</p>
+            <span class="section-eyebrow">✦ Early Access Beta</span>
             <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">Save on your Shift Sync subscription</h2>
             <p class="text-lg text-gray-300 mb-6">Sign up for the beta and help us test new functionality. Lock in a
               discounted subscription for launch and get priority onboarding support.</p>
@@ -663,6 +746,7 @@
     <section id="contact" class="py-20 bg-primary-dark">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
+          <span class="section-eyebrow">✦ Contact</span>
           <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-accent">
             Contact Us
           </h2>
@@ -808,6 +892,7 @@
     </section>
   </main>
   <footer class="bg-primary text-center py-8 border-t border-accent-dim">
+    <div id="fb-root"></div>
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
@@ -817,12 +902,49 @@
           </div>
           <p class="text-gray-400 text-sm">by Rampage Limited, Isle of Man</p>
         </div>
-        <div class="text-gray-400 text-sm">
-          <p>&copy; 2025 Rampage Limited. All rights reserved.</p>
+        <div class="flex flex-col items-center md:items-end gap-3">
+          <div class="flex items-center gap-3">
+            <a href="https://www.facebook.com/profile.php?id=61580098871516" target="_blank" rel="noopener noreferrer"
+              class="social-icon-link" aria-label="Shift Sync on Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/shiftsync-im" target="_blank" rel="noopener noreferrer"
+              class="social-icon-link" aria-label="Shift Sync on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm">&copy; 2025 Rampage Limited. All rights reserved.</p>
         </div>
       </div>
     </div>
   </footer>
+  <!-- Facebook JS SDK for autoplay video embed -->
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({ xfbml: true, version: 'v19.0' });
+      FB.Event.subscribe('xfbml.ready', function (msg) {
+        if (msg.type === 'video' && msg.id === 'hero-reel') {
+          msg.instance.mute();
+          msg.instance.play();
+        }
+      });
+    };
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 
 </html>
