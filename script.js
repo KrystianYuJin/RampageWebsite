@@ -16,7 +16,35 @@ document.addEventListener("DOMContentLoaded", function () {
   initTrialButtons();
   initContactSalesButton();
   createFloatingParticles();
+  initCursorGlow();
 });
+
+// Cursor glow effect
+function initCursorGlow() {
+  const glow = document.createElement("div");
+  glow.className = "cursor-glow";
+  document.body.appendChild(glow);
+
+  let mouseX = -1000, mouseY = -1000;
+  let glowX = -1000, glowY = -1000;
+  let rafId;
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function animate() {
+    glowX = lerp(glowX, mouseX, 0.08);
+    glowY = lerp(glowY, mouseY, 0.08);
+    glow.style.left = glowX + "px";
+    glow.style.top  = glowY + "px";
+    rafId = requestAnimationFrame(animate);
+  }
+  animate();
+}
 
 // Enhanced scroll-triggered animations with stagger effect
 function initScrollAnimations() {
@@ -47,10 +75,10 @@ function initScrollAnimations() {
   });
 }
 
-// Enhanced parallax effects
+// Enhanced parallax effects + sticky header scroll state
 function initParallaxEffects() {
   const heroSection = document.querySelector(".hero-section");
-  if (!heroSection) return;
+  const header = document.querySelector("header");
 
   let ticking = false;
 
@@ -58,9 +86,14 @@ function initParallaxEffects() {
     const scrolled = window.pageYOffset;
     const parallaxSpeed = 0.3;
 
-    if (scrolled < window.innerHeight) {
+    if (heroSection && scrolled < window.innerHeight) {
       heroSection.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
     }
+
+    if (header) {
+      header.classList.toggle("scrolled", scrolled > 20);
+    }
+
     ticking = false;
   }
 
@@ -78,7 +111,7 @@ function initEnhancedAnimations() {
   const featureCards = document.querySelectorAll(".feature-card");
   featureCards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-12px) scale(1.02) rotateY(5deg)";
+      card.style.transform = "translateY(-12px)";
     });
 
     card.addEventListener("mouseleave", () => {
