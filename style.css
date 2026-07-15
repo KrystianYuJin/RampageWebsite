@@ -1690,6 +1690,8 @@ footer {
   gap: 2rem;
   width: max-content;
   animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .marquee-track span {
@@ -1714,7 +1716,7 @@ footer {
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-33.333333%);
   }
 }
 
