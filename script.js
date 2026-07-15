@@ -1,4 +1,4 @@
-// Modern Shift Sync Website JavaScript
+// Modern Synca Website JavaScript
 // Enhanced animations and interactions for the modern dark theme
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -403,7 +403,7 @@ async function submitFormspreeForm(form, updateCounter) {
       errorMessage = 'Submission blocked. Please try again.';
     }
     
-    showErrorMessage(errorMessage + ' If the problem persists, please contact us directly at hello@shiftsync.im');
+    showErrorMessage(errorMessage + ' If the problem persists, please contact us directly at synca@rampage.im');
   } finally {
     // Reset button state
     submitButton.disabled = false;
@@ -743,7 +743,7 @@ function initEmailReveal() {
     // Auto-assemble email address on page load
     setTimeout(function() {
       // Obfuscated email parts
-      const user = 'ShiftSync';
+      const user = 'synca';
       const domain = 'rampage';
       const tld = 'im';
       const email = user + '@' + domain + '.' + tld;
@@ -798,9 +798,9 @@ function initTrialButtons() {
       button.textContent = 'Redirecting...';
       button.disabled = true;
       
-      // Redirect to shiftsync.rampage.im
+      // Redirect to the production app URL
       setTimeout(() => {
-        window.open('https://shiftsync.rampage.im', '_blank');
+        window.open('https://synca.rampage.im', '_blank');
         
         // Reset button state
         button.textContent = originalText;

@@ -2,10 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Preview Shift Sync Website",
+      "label": "Preview Synca Website",
       "type": "shell",
       "command": "start",
-      "args": ["index.html"],
+      "args": [
+        "index.html"
+      ],
       "group": "build",
       "isBackground": false
     }
